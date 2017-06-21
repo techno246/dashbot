@@ -95,12 +95,14 @@ function DashBotFacebook(apiKey, urlRoot, debug, printErrors) {
   function botkitTransformOutgoing(bot, message) {
     var sendMessage = _.cloneDeep(message);
     var channel = getAndRemove(sendMessage, 'channel');
+    var templateTagId = getAndRemove(sendMessage, 'dashbotTemplateId');
     console.log(message);
     return {
       qs: {
         access_token: bot.botkit.config.access_token
       },
       json: {
+        dashbotTempalteId: templateTagId,
         recipient: {
           id: channel
         },
