@@ -95,6 +95,7 @@ function DashBotFacebook(apiKey, urlRoot, debug, printErrors) {
   function botkitTransformOutgoing(bot, message) {
     var sendMessage = _.cloneDeep(message);
     var channel = getAndRemove(sendMessage, 'channel');
+    console.log(message);
     return {
       qs: {
         access_token: bot.botkit.config.access_token
